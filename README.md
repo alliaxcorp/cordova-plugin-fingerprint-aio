@@ -31,6 +31,9 @@ _Version 4 was developed almost 100% by other people than me (@NiklasMerz)._ **P
 
 * Android - Minimum SDK 23
 * iOS - **latest XCode** is required. Plugin sets Swift version 4.
+  * _Please set `<preference name="SwiftVersion" value="5.0" />` in your config.xml_
+* Mac via Catalyst. If you run the iOS platform on a Mac the plugin will ask for the user password and work with like on other platforms.
+* The [cordova-osx](https://github.com/apache/cordova-osx) platform is not supported
 
 
 ## How to use
@@ -121,7 +124,7 @@ Fingerprint.show({
 * __cancelButtonTitle__: For cancel button on Android
 * __confirmationRequired__ (**Android**): If `false` user confirmation is NOT required after a biometric has been authenticated . Default: `true`. See [docs](https://developer.android.com/training/sign-in/biometric-auth#no-explicit-user-action).
 
-### Show authentication dialogue and register secret
+### Register secret
 ```javascript
 Fingerprint.registerBiometricSecret({
       description: "Some biometric description",
@@ -138,6 +141,9 @@ Fingerprint.registerBiometricSecret({
       alert("Authentication invalid " + error.message);
     }
 ```
+
+This **may** show an authentication prompt.
+
 ### Optional parameters
 
 * __title__: Title in authentication dialogue. Default: `"<APP_NAME> Biometric Sign On"`
